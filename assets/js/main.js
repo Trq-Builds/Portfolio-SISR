@@ -45,11 +45,10 @@ function loadNavbar() {
   render('.navbar-list', navHTML);
 }
 
-// --- PROFIL (sans localisation) ---
+// --- PROFIL ---
 function loadProfile() {
   const imgEl = getElement('.avatar-box img');
-  if (imgEl) imgEl.src = profileData.avatar;
-  {
+  if (imgEl) {
     const isDark = document.body.classList.contains('dark-mode');
     imgEl.src = isDark ? profileData.avatar : profileData.avatarLight;
   }
@@ -60,7 +59,6 @@ function loadProfile() {
   const roleEl = getElement('.info-content .title');
   if (roleEl) roleEl.textContent = profileData.role;
 
-  // Contacts — email uniquement (pas de localisation)
   const contactHTML = `
     <li class="contact-item">
       <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
@@ -72,7 +70,6 @@ function loadProfile() {
   `;
   render('.contacts-list', contactHTML);
 
-  // Socials
   const socialHTML = profileData.socials.map(social => `
     <li class="social-item">
       <a href="${social.link}" class="social-link" target="_blank">
@@ -122,59 +119,9 @@ function loadResume() {
   render('.skills-list', skillsHTML);
 }
 
-// --- OUTILS ---
-function loadOutils() {
-  const outilsHTML = outilsData.map(category => `
-    <li class="tools-category">
-      <div class="title-wrapper">
-        <div class="icon-box"><ion-icon name="${category.icon}"></ion-icon></div>
-        <h3 class="h3">${category.title}</h3>
-      </div>
-      <ul class="tools-items">
-        ${category.items.map(item => `
-          <li class="tool-item">
-            <div class="tool-content">
-              <h4 class="h4">${item.name}</h4>
-              <p class="tool-description">${item.description}</p>
-              ${item.link ? `<a href="${item.link}" class="tool-link" target="_blank">Voir le site <ion-icon name="open-outline"></ion-icon></a>` : ''}
-            </div>
-          </li>
-        `).join('')}
-      </ul>
-    </li>
-  `).join('');
-  render('.tools-list', outilsHTML);
-}
-
-// --- CERTIFICATIONS ---
-function loadCertifications() {
-  const certHTML = certificationsData.map(category => `
-    <li class="tools-category">
-      <div class="title-wrapper">
-        <div class="icon-box"><ion-icon name="${category.icon}"></ion-icon></div>
-        <h3 class="h3">${category.title}</h3>
-      </div>
-      <ul class="tools-items">
-        ${category.items.map(item => `
-          <li class="tool-item">
-            <div class="tool-content">
-              <h4 class="h4">${item.name}</h4>
-              ${item.issuer ? `<p class="cert-meta"><ion-icon name="business-outline"></ion-icon> ${item.issuer}${item.date ? ` — ${item.date}` : ''}</p>` : ''}
-              <p class="tool-description">${item.description}</p>
-              ${item.link ? `<a href="${item.link}" class="tool-link" target="_blank">Voir la certification <ion-icon name="open-outline"></ion-icon></a>` : ''}
-            </div>
-          </li>
-        `).join('')}
-      </ul>
-    </li>
-  `).join('');
-  render('.certifications-list', certHTML);
-}
-
-// --- MATÉRIEL ---
-function loadMateriel() {
-  function loadStage() {
-    const html = stageData.map(s => `
+// --- STAGE ---
+function loadStage() {
+  const html = stageData.map(s => `
     <li class="stage-card">
       <div class="stage-card-header">
         <span class="stage-company">${s.company}</span>
@@ -186,11 +133,12 @@ function loadMateriel() {
       </ul>
     </li>
   `).join('');
-    render('.stage-list', html);
-  }
+  render('.stage-list', html);
+}
 
-  function loadVeille() {
-    const html = veilleData.map(cat => `
+// --- VEILLE ---
+function loadVeille() {
+  const html = veilleData.map(cat => `
     <li class="tools-category">
       <div class="title-wrapper">
         <div class="icon-box"><ion-icon name="${cat.icon}"></ion-icon></div>
@@ -210,30 +158,36 @@ function loadMateriel() {
       </ul>
     </li>
   `).join('');
-    render('.veille-list', html);
-  }
-  const materielHTML = materielData.map(category => `
-    <li class="tools-category">
-<div class="title-wrapper">
-  <div class="icon-box"><ion-icon name="${category.icon}"></ion-icon></div>
-  <h3 class="h3">${category.title}</h3>
-  <span class="category-count">${category.items.length}</span>
-</div>
-      <ul class="tools-items">
-        ${category.items.map(item => `
-          <li class="tool-item">
-            <div class="tool-content">
-              <h4 class="h4">${item.name}</h4>
-              <p class="tool-description">${item.description}</p>
-              ${item.link ? `<a href="${item.link}" class="tool-link" target="_blank">Voir le produit <ion-icon name="open-outline"></ion-icon></a>` : ''}
-            </div>
+  render('.veille-list', html);
+}
+
+// --- BENTO — Utilitaire partagé (Outils / Certifications / Matériel) ---
+function renderBento(data, targetSelector, linkLabel = 'Voir le site') {
+  const html = data.map(cat => `
+    <section class="bento-section">
+      <h3 class="bento-heading">
+        <div class="icon-box"><ion-icon name="${cat.icon}"></ion-icon></div>
+        ${cat.title}
+        <span class="bento-count">${cat.items.length}</span>
+      </h3>
+      <ul class="bento-grid">
+        ${cat.items.map(item => `
+          <li class="bento-card">
+            <h4>${item.name}</h4>
+            ${item.issuer ? `<p class="bento-meta"><ion-icon name="business-outline"></ion-icon>${item.issuer}${item.date ? ` — ${item.date}` : ''}</p>` : ''}
+            <p class="bento-desc">${item.description}</p>
+            ${item.link ? `<a href="${item.link}" class="tool-link" target="_blank">${linkLabel} <ion-icon name="open-outline"></ion-icon></a>` : ''}
           </li>
         `).join('')}
       </ul>
-    </li>
+    </section>
   `).join('');
-  render('.materiel-list', materielHTML);
+  render(targetSelector, html);
 }
+
+function loadOutils()         { renderBento(outilsData,         '.outils-target',         'Voir le site');          }
+function loadCertifications() { renderBento(certificationsData, '.certifications-target', 'Voir la certification'); }
+function loadMateriel()       { renderBento(materielData,       '.materiel-target',       'Voir le produit');       }
 
 // --- PORTFOLIO ---
 function loadPortfolio() {
@@ -321,126 +275,65 @@ function setupSidebar() {
   }
 }
 
-function loadStage() {
-  const html = stageData.map(s => `
-    <li class="stage-card">
-      <div class="stage-card-header">
-        <span class="stage-company">${s.company}</span>
-        <span class="stage-date">${s.date}</span>
-      </div>
-      <p class="stage-role">${s.role}</p>
-      <ul class="stage-missions">
-        ${s.missions.map(m => `<li>${m}</li>`).join('')}
-      </ul>
-    </li>
-  `).join('');
-  render('.stage-list', html);
-}
-
-function loadVeille() {
-  const html = veilleData.map(cat => `
-    <li class="tools-category">
-      <div class="title-wrapper">
-        <div class="icon-box"><ion-icon name="${cat.icon}"></ion-icon></div>
-        <h3 class="h3">${cat.title}</h3>
-        <span class="category-count">${cat.items.length}</span>
-      </div>
-      <ul class="tools-items">
-        ${cat.items.map(item => `
-          <li class="tool-item">
-            <div class="tool-content">
-              <h4 class="h4">${item.name}</h4>
-              <p class="tool-description">${item.description}</p>
-              ${item.link ? `<a href="${item.link}" class="tool-link" target="_blank">Voir la source <ion-icon name="open-outline"></ion-icon></a>` : ''}
-            </div>
-          </li>
-        `).join('')}
-      </ul>
-    </li>
-  `).join('');
-  render('.veille-list', html);
-}
 function setupAvatarEasterEgg() {
-  // ── ÉDITER UNIQUEMENT CE TABLEAU pour ajouter une phrase ──
-const AVATAR_QUOTES = [
-  // --- PHASE 1 : LA FAÇADE TECHNIQUE (Le masque) ---
-  "Tu as trouvé le Secret. Bien joué.",
-  "Mais es-tu sûr…?",
-  "Ici, on ne fait pas demi-tour.",
-  "Alors...",
-  "N'oublie jamais : nous avons toujours le choix.",
-  "Cela fait longtemps que je t'observe, Chevalier noir.",
-  "Tu suis un code.",
-  "Ne jamais tuer.",
-  "Chat Generative Pre-Trained Transformer V5.1.",
-  "SAVILE ROW.",
-  "P***** D* C****.",
-  "j'répare les fissures au mastic.",
-
-  // --- PHASE 2 : L'ÉTRANGE ET LE VAGUE (Le courant de pensées) ---
-  "Démonstration.",
-  "C'est une façon de voir les choses.",
-  "Un courant de pensées.",
-  "OFF ROAD.",
-  "D'étranges couleurs dans ma tête.",
-  "Jour De Plus",
-  "Loving Machine - TV Girl.",
-  "20200228 - Mac Demarco.",
-  "20200229 2 - Mac Demarco.",
-  "Phantom - Mac Demarco.",
-  "Sweater - Mac DeMarco.",
-  "20201203 - Mac DeMarco.",
-  "Ce jour-là, le bruit s’était arrêté.",
-
-  // --- PHASE 3 : LE GRIS ET LE FROID (La descente) ---
-  "Le Gris, la Perte et la Reconstruction.",
-  "Merci pour les couleurs.",
-  "Mon monde a perdu ses couleurs.",
-  "Ambiance Grise.",
-  "Ambiance Vandale.",
-  "Jardin Pâle.",
-  "UN AUTRE JOUR.",
-  "C'est juste un autre jour.",
-  "Heavy - The Marías.",
-  "100 000 LUMENS.",
-
-  // --- PHASE 4 : LA BRUTALITÉ DU RÉEL (L'abysse) ---
-  "I Don't Wanna Be Me - Type O Negative.",
-  "Numb - Linkin Park.",
-  "Papercut - Linkin Park.",
-  "Figure.09 - Linkin Park.",
-  "J'sais pas c'qui cloche chez moi.",
-  "Pour toutes ces fois où j'en ai eu la gorge nouée.",
-  "Les mots sont durs mais ils sont c'qu'ils sont.",
-  "Si personne n'en parle, comment on va faire ?",
-  "La main tendue dans les abysses.",
-  "Ils ont scellé l'môme dans une tombe.",
-  "Pourtant dehors, le ciel est bleu, mais c'est bizarre, j'ai toujours l'blues.",
-  "l'esprit, le corps, tout est cassé.",
-  "Je sais qu'l'amour peut réparer, j'le vois dans les yeux de...",
-  "Moi, j'pardonne tous les humains.",
-  "si les humains savent parler",
-  "J'en veux au monde, j'en veux au môme, chaque jour",
-  "chaque jour, j'paye le prix d'ces bêtises",
-  "Même si je réfléchis un peu moins, je porte encore le poids de ces cicatrices.",
-
-
-  // --- PHASE 5 : LA RÉSILIENCE (Le retour à l'essentiel) ---
-  "Dehors, il pleut des cordes, sur mon seum, j'fais un billet.",
-  "La Bougie ne s'est pas éteinte.",
-  "Y a pas d'plus beau sourire que celui de ceux qu'j'aime."
-];
-
-// Logique d'affichage chronologique
-let currentQuoteIndex = 0;
-function getNextQuote() {
-    const quote = AVATAR_QUOTES[currentQuoteIndex];
-    // On reste bloqué sur la dernière phrase pour marquer la fin du voyage
-    if (currentQuoteIndex < AVATAR_QUOTES.length - 1) {
-        currentQuoteIndex++;
-    }
-    return quote;
-}
+  const AVATAR_QUOTES = [
+    "Tu as trouvé le Secret. Bien joué.",
+    "Mais es-tu sûr…?",
+    "Ici, on ne fait pas demi-tour.",
+    "Alors...",
+    "N'oublie jamais : nous avons toujours le choix.",
+    "Cela fait longtemps que je t'observe, Chevalier noir.",
+    "Tu suis un code.",
+    "Ne jamais tuer.",
+    "Chat Generative Pre-Trained Transformer V5.1.",
+    "SAVILE ROW.",
+    "P***** D* C****.",
+    "j'répare les fissures au mastic.",
+    "Démonstration.",
+    "C'est une façon de voir les choses.",
+    "Un courant de pensées.",
+    "OFF ROAD.",
+    "D'étranges couleurs dans ma tête.",
+    "Jour De Plus",
+    "Loving Machine - TV Girl.",
+    "20200228 - Mac Demarco.",
+    "20200229 2 - Mac Demarco.",
+    "Phantom - Mac Demarco.",
+    "Sweater - Mac DeMarco.",
+    "20201203 - Mac DeMarco.",
+    "Ce jour-là, le bruit s'était arrêté.",
+    "Le Gris, la Perte et la Reconstruction.",
+    "Merci pour les couleurs.",
+    "Mon monde a perdu ses couleurs.",
+    "Ambiance Grise.",
+    "Ambiance Vandale.",
+    "Jardin Pâle.",
+    "UN AUTRE JOUR.",
+    "C'est juste un autre jour.",
+    "Heavy - The Marías.",
+    "100 000 LUMENS.",
+    "I Don't Wanna Be Me - Type O Negative.",
+    "Numb - Linkin Park.",
+    "Papercut - Linkin Park.",
+    "Figure.09 - Linkin Park.",
+    "J'sais pas c'qui cloche chez moi.",
+    "Pour toutes ces fois où j'en ai eu la gorge nouée.",
+    "Les mots sont durs mais ils sont c'qu'ils sont.",
+    "Si personne n'en parle, comment on va faire ?",
+    "La main tendue dans les abysses.",
+    "Ils ont scellé l'môme dans une tombe.",
+    "Pourtant dehors, le ciel est bleu, mais c'est bizarre, j'ai toujours l'blues.",
+    "l'esprit, le corps, tout est cassé.",
+    "Je sais qu'l'amour peut réparer, j'le vois dans les yeux de...",
+    "Moi, j'pardonne tous les humains.",
+    "si les humains savent parler",
+    "J'en veux au monde, j'en veux au môme, chaque jour",
+    "chaque jour, j'paye le prix d'ces bêtises",
+    "Même si je réfléchis un peu moins, je porte encore le poids de ces cicatrices.",
+    "Dehors, il pleut des cordes, sur mon seum, j'fais un billet.",
+    "La Bougie ne s'est pas éteinte.",
+    "Y a pas d'plus beau sourire que celui de ceux qu'j'aime."
+  ];
 
   const trigger = document.getElementById('avatarTrigger');
   const bubble  = document.getElementById('avatarBubble');
@@ -470,6 +363,7 @@ function getNextQuote() {
   });
   document.addEventListener('pointerdown', hide);
 }
+
 // --- INIT ---
 document.addEventListener('DOMContentLoaded', () => {
   loadNavbar();
