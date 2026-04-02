@@ -15,8 +15,8 @@ export const profileData = {
 };
 
 export const aboutData = {
-  text: `<p>Étudiant SIO-SISR en 2ᵉ année, spécialisé en réseaux et passionné de hardware. Organisé, méthodique et toujours prêt à bricoler, j'aime comprendre, optimiser et résoudre les problèmes.</p>
-         <p>Auteur du projet Optimize Alot et de multiples documentations techniques, je construis des solutions simples, efficaces et reproductibles. Expérience pratique en Windows, dépannage et maintenance.</p>`,
+  text: `<p>Étudiant en SIO-SISR, 2ᵉ année. Spécialisation réseaux. Intérêt marqué pour le hardware. Approche structurée, logique. Analyse, démonte, corrige. Optimisation systématique. Rien n’est laissé au hasard.</p>
+         <p>À l’origine du projet Optimize Alot et de plusieurs documentations techniques. Conception de solutions directes, fonctionnelles, reproductibles. Expérience terrain sur Windows : diagnostic, dépannage, maintenance. Pas de théorie inutile. Juste ce qui fonctionne..</p>`,
 };
 
 export const resumeData = {
@@ -193,17 +193,17 @@ export const certificationsData = [
 // ========== MATÉRIEL ==========
 export const materielData = [
   {
-    title: "PC",
+    title: "PC - https://userdiag.com/id/AAszfv8TDV",
     icon: "desktop-outline",
     items: [
       {
         name: "AMD Ryzen 7 9700X",
-        description: "Processeur 8 Cores / 16 Threads à 5.62GHz - PBO et Powerlimit débloqués + Tweaks BIOS",
+        description: "Processeur 8 Cores / 16 Threads (O.C à 5.62GHz) - PBO et Powerlimit débloqués + Tweaks BIOS",
         link: "https://www.amd.com/fr/products/processors/desktops/ryzen/9000-series/amd-ryzen-7-9700x.html"
       },
       {
         name: "XFX Radeon RX 5700 XT RAW III",
-        description: "8Go de VRAM GDDR6 - Performances correctes en 1080P + BIOS Custom",
+        description: "8Go de VRAM GDDR6 - Performances correctes en 1080P + BIOS Custom et Powerlimit désactivé.",
         link: "https://www.xfxforce.com/gpus/radeon-tm-rx-5700-xt-8gb-gddr6-thicc-iii-ultra"
       },
       {
@@ -269,7 +269,7 @@ export const materielData = [
       },
       {
         name: "Matos Son",
-        description: "Casque principal : Corsair HS60 Pro Surround (connecté en analogique à la carte mère, réglée sur 32 bits / 192 kHz, avec sortie WASAPI et rééchantillonnage Windows désactivé). | IEMs : Kiwi Ears Cadenza – driver dynamique en béryllium de 10 mm (audiophile), pour un son de haute qualité, idéal pour la musique et un son cristallin. (D.A.C et Amplificateur envisagé).",
+        description: "Casque principal : Corsair HS60 Pro (connecté en analogique à la carte mère, réglée sur 24 bits / 48 kHz, avec sortie WASAPI. | IEMs : Kiwi Ears Cadenza – driver dynamique en béryllium de 10 mm (audiophile) - (D.A.C et Amplificateur envisagé).",
         link: "https://kiwiears.com/products/kiwi-ears-cadenza"
       }
     ]
@@ -374,7 +374,9 @@ export const stageData = [
       "Accueil et diagnostic client — identification des pannes hardware et software",
       "Dépannage PC : remplacement de composants, réinstallation OS, récupération de données",
       "Gestion logistique : réception, inventaire et suivi du matériel",
-      "Rédaction de fiches d'intervention et comptes-rendus techniques"
+      "Rédaction de fiches d'intervention et comptes-rendus techniques",
+      "Audit du matériel informatique en préparation d’un déménagement.",
+      "Tests en chaîne des composants matériels : disques, CPU, GPU, mémoire."
     ]
   },
   {
@@ -393,45 +395,29 @@ export const stageData = [
 // ========== VEILLE INFORMATIQUE ==========
 export const veilleData = [
   {
-    title: "Sécurité & Cybersécurité",
-    icon: "shield-checkmark-outline",
+    title: "Chaines Youtube",
+    icon: "logo-youtube",
     items: [
       {
-        name: "The Hacker News",
-        description: "CVE critiques, ransomware, zero-day. Lecture quotidienne.",
-        link: "https://thehackernews.com/"
+        name: "optimum-tech",
+        description: "Optimum Tech est une chaîne YouTube populaire créée et animée par Ali Sayed, spécialisée dans les montages PC haut de gamme, les configurations gaming, les mini-PC et les périphériques sur mesure.  La chaîne se distingue par un style vidéo minimaliste et épuré, avec une attention particulière aux détails esthétiques et techniques.",
+        link: "https://www.youtube.com/@optimumtech"
       },
       {
-        name: "CERT-FR",
-        description: "Bulletins officiels ANSSI — alertes et avis sur les systèmes en environnement pro français.",
-        link: "https://www.cert.ssi.gouv.fr/"
+        name: "Jigfio",
+        description: "Jigfio est une chaîne YouTube française spécialisée dans la technologie, créée en 2011 par un passionné d'informatique basé à Limoges.  Initialement reconnue pour ses tests poussés et critiques honnêtes de matériel informatique",
+        link: "https://www.youtube.com/@Jigfio"
       },
       {
-        name: "CVE Details",
-        description: "Base de données des vulnérabilités connues avec score CVSS — utile avant d'appliquer un patch.",
-        link: "https://www.cvedetails.com/"
-      }
-    ]
-  },
-  {
-    title: "Systèmes & Réseaux",
-    icon: "server-outline",
-    items: [
-      {
-        name: "IT-Connect",
-        description: "Ressource francophone sur Active Directory, Windows Server, Linux et virtualisation.",
-        link: "https://www.it-connect.fr/"
+        name: "Vex",
+        description: "Une chaîne tech et PC gaming, avec un ton franc et des vidéos d’analyse.",
+        link: "https://www.youtube.com/@vextakes"
       },
       {
-        name: "Korben",
-        description: "Outils open source, sécurité et culture hacker. Ton direct, pas de remplissage.",
-        link: "https://korben.info/"
+        name: "PAX PC",
+        description: "PAXPC. Une chaîne YouTube française. Derrière, Pax. Un profil discret, méthodique, presque clinique.Point d’ancrage : Limoges. Terrain d’étude : l’informatique brute. Hardware, optimisation, rendement. Rien de superflu.Les vidéos dissèquent. Tests rigoureux. Comparatifs précis. Guides sans détour. GPU, CPU, systèmes de ventilation, boîtiers — chaque élément est passé au crible.Trois variables dominent : performance, bruit, coût. Le reste n’existe pas.",
+        link: "https://www.youtube.com/@vextakes"
       },
-      {
-        name: "Phoronix",
-        description: "Benchmarks kernel Linux, drivers GPU open source (Mesa, RADV) et évolutions des dépôts majeurs.",
-        link: "https://www.phoronix.com/"
-      }
     ]
   },
   {
@@ -439,14 +425,19 @@ export const veilleData = [
     icon: "hardware-chip-outline",
     items: [
       {
-        name: "Serve The Home",
-        description: "NAS, mini-PC, cartes réseau et matériel serveur. Suivi de l'écosystème ARM/RISC-V pro.",
-        link: "https://www.servethehome.com/"
+        name: "Video Cardz",
+        description: "VideoCardz est un site d’actualité spécialisé dans les cartes graphiques, les GPU et le hardware PC. Il publie surtout des infos sur les nouveautés, les annonces, les tests, les rumeurs et les fuites du secteur.",
+        link: "https://videocardz.com/"
       },
       {
-        name: "Tom's Hardware",
-        description: "Benchmarks et reviews CPU/GPU — suivi des sorties en temps réel.",
-        link: "https://www.tomshardware.com/"
+        name: "Overclocking.com",
+        description: "Overclocking.com est une plateforme française née en 2011, dédiée à l’analyse et à l’optimisation du matériel informatique.Tests rigoureux, performances mesurées, approche sans concession.En arrière-plan, une communauté active — précise, exigeante, presque clinique.",
+        link: "https://overclocking.com/"
+      },
+      {
+        name: "TechPowerUp ",
+        description: "TechPowerUp est une référence anglophone fondée en 2004, centrée sur l’analyse approfondie du matériel informatique.Bases de données exhaustives, outils précis comme GPU-Z, rigueur constante.Une communauté active, mais surtout une autorité technique — froide, fiable, incontestable.  ",
+        link: "https://www.techpowerup.com/"
       }
     ]
   },
