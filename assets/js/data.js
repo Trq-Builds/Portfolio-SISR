@@ -123,13 +123,13 @@ export const outilsData = [
       },
       {
         name: "Parabolic",
-        description: "Utilitaire de téléchargement de vidéos et d’audio basé sur yt-dlp : une interface moderne et intuitive pour récupérer du contenu facilement. Un outil open-source performant, pensé pour l’efficacité.",
+        description: "Utilitaire de téléchargement de vidéos et d’audio basé sur yt-dlp : une interface moderne et intuitive pour récupérer du contenu facilement.",
         link: "https://github.com/NickvisionApps/Parabolic"
       },
       {
-        name: "QQDL",
+        name: "Arcod",
         description: "Scrapper de musique : un outil capable de récupérer rapidement des morceaux en qualité lossless en .FLAC. Pour ceux qui aiment le bon son, cela mérite au moins un coup d'œil.",
-        link: "https://tidal.qqdl.site/"
+        link: "https://www.arcod.xyz/"
       },
       {
         name: "VSCodium",
@@ -259,7 +259,7 @@ export const materielData = [
       },
       {
         name: "Mes Claviers",
-        description: "Hama : clavier bureautique standard AZERTY (sans fil) | Clavier de Jeu : MAD68R : Hall Effect - Switches KUNLUN AXIS - Mods : sound dampening + gasket mount.",
+        description: "Hama : clavier bureautique standard AZERTY (sans fil) | Clavier de Jeu : MAD68R : Hall Effect - Switches KUNLUN-AXIS - Mods : sound dampening + gasket mount.",
         link: "https://madlionskeyboard.com/fr/produit/mad68he/"
       },
       {
@@ -269,7 +269,7 @@ export const materielData = [
       },
       {
         name: "Matos Son",
-        description: "Casque principal : Corsair HS60 Pro (connecté en analogique à la carte mère, réglée sur 24 bits / 48 kHz, avec sortie WASAPI. | IEMs : Kiwi Ears Cadenza – driver dynamique en béryllium de 10 mm (audiophile) - (D.A.C et Amplificateur envisagé).",
+        description: "Casque principal : Corsair HS60 Pro (connecté en analogique à la carte mère, réglée sur 24 bits / 96kHz, avec sortie WASAPI. | IEMs : Kiwi Ears Cadenza – driver dynamique en béryllium de 10mm (audiophile) - (D.A.C et Amplificateur envisagé).",
         link: "https://kiwiears.com/products/kiwi-ears-cadenza"
       }
     ]
@@ -400,7 +400,7 @@ export const veilleData = [
     items: [
       {
         name: "optimum-tech",
-        description: "Optimum Tech est une chaîne YouTube populaire créée et animée par Ali Sayed, spécialisée dans les montages PC haut de gamme, les configurations gaming, les mini-PC et les périphériques sur mesure.  La chaîne se distingue par un style vidéo minimaliste et épuré, avec une attention particulière aux détails esthétiques et techniques.",
+        description: "Optimum Tech - chaîne YouTube dirigée par Ali Sayed. Montage PC haut de gamme, configurations gaming, mini-PC, périphériques sur mesure. Minimaliste, épurée, focalisée sur le détail esthétique et technique.",
         link: "https://www.youtube.com/@optimumtech"
       },
       {
@@ -415,7 +415,7 @@ export const veilleData = [
       },
       {
         name: "PAX PC",
-        description: "PAXPC. Une chaîne YouTube française. Derrière, Pax. Un profil discret, méthodique, presque clinique.Point d’ancrage : Limoges. Terrain d’étude : l’informatique brute. Hardware, optimisation, rendement. Rien de superflu.Les vidéos dissèquent. Tests rigoureux. Comparatifs précis. Guides sans détour. GPU, CPU, systèmes de ventilation, boîtiers — chaque élément est passé au crible.Trois variables dominent : performance, bruit, coût. Le reste n’existe pas.",
+        description: "PAXPC - chaîne YouTube française, opérée par Pax. discret, méthodique, approche clinique. Tests rigoureux, comparatifs précis, guides sans détour.",
         link: "https://www.youtube.com/@vextakes"
       },
     ]
@@ -431,12 +431,12 @@ export const veilleData = [
       },
       {
         name: "Overclocking.com",
-        description: "Overclocking.com est une plateforme française née en 2011, dédiée à l’analyse et à l’optimisation du matériel informatique.Tests rigoureux, performances mesurées, approche sans concession.En arrière-plan, une communauté active — précise, exigeante, presque clinique.",
+        description: "Overclocking.com plateforme française fondée en 2011 - Communauté active, précise, exigeante.",
         link: "https://overclocking.com/"
       },
       {
         name: "TechPowerUp ",
-        description: "TechPowerUp est une référence anglophone fondée en 2004, centrée sur l’analyse approfondie du matériel informatique.Bases de données exhaustives, outils précis comme GPU-Z, rigueur constante.Une communauté active, mais surtout une autorité technique — froide, fiable, incontestable.  ",
+        description: "TechPowerUp - plateforme anglophone fondée en 2004. Analyse approfondie du matériel informatique. - autorité technique — froide, fiable, incontestable.",
         link: "https://www.techpowerup.com/"
       }
     ]
