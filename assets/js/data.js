@@ -193,7 +193,7 @@ export const certificationsData = [
 // ========== MATÉRIEL ==========
 export const materielData = [
   {
-    title: "PC - https://userdiag.com/id/AAszfv8TDV",
+    title: "PC",
     icon: "desktop-outline",
     items: [
       {
