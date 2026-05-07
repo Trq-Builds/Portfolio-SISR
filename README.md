@@ -92,7 +92,7 @@ IAs         : Claude Sonnet · GPT-5.1 · Gemini 3.0 Pro
 
 ## `  ⚫  `︲Backlogs
 
-- [ ] Module **Veille informatique** ︲ Structuration et rédaction.
+- [x] Module **Veille informatique** ︲ Structuration et rédaction.
 - [ ] Module **Stage** ︲ Rédaction et enrichisement.
 - [x] Optimisation CSS réduction du temps de chargement. / Rendu plus rapide, structure allégée.
 - [ ] Module **Certifications** ︲ Enrichissement contenu.
