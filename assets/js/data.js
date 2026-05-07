@@ -73,6 +73,11 @@ export const outilsData = [
         name: "ChatGPT",
         description: "Modèle d’IA développé par OpenAI, capable d’aider à la génération de contenu et à la résolution de problèmes. Un outil polyvalent qui peut servir de support dans de nombreux contextes, selon les besoins.",
         link: "https://chatgpt.com/"
+      },
+      {
+        name: "PerplexityAI",
+        description: "Moteur de recherche conversationnel basé sur l’IA, fournissant des réponses synthétiques avec sources citées en temps réel.",
+        link: "https://www.perplexity.ai/"
       }
     ]
   },
@@ -395,6 +400,49 @@ export const stageData = [
 // ========== VEILLE INFORMATIQUE ==========
 export const veilleData = [
   {
+    title: "CPU — Architectures Hybrides",
+    icon: "hardware-chip-outline",
+    items: [
+      {
+        name: "Intel Arrow Lake (Core Ultra 200)",
+        description: "Architecture hétérogène Lion Cove / Skymont. P-Core : 18 ports d'exécution, L3 jusqu'à 36 Mo. E-Core Skymont : 26 ports de distribution, débit IA ×2 vs Raptor Lake. Pilotage énergétique via Thread Director V2 — pertinent pour le dimensionnement de postes à faible TDP.",
+        link: "https://hardwareand.co/actualites/longues/intel-lance-ses-core-ultra-200s-ca-y-est-arrow-lake-est-de-sortie"
+      },
+      {
+        name: "AMD Zen 5 (Ryzen 9000)",
+        description: "Hausse IPC structurelle sur pipeline front-end élargi. Gravure TSMC 4nm/3nm selon SKU. Scalabilité HPC confirmée via chiplets CCD + IOD. Intérêt SISR : rapport cœurs/TDP optimal pour des serveurs de fichiers ou hyperviseurs légers.",
+        link: "https://www.lesnumeriques.com/cpu-processeur/processeurs-amd-ryzen-9000-zen5-ils-debarquent-avec-des-performances-impressionnantes-n222455.html"
+      }
+    ]
+  },
+  {
+    title: "GPU — Rendu Neuronal",
+    icon: "layers-outline",
+    items: [
+      {
+        name: "NVIDIA Blackwell (RTX 50xx)",
+        description: "Tensor Cores 5e gen : support FP4 natif pour inférence LLM locale. DLSS 4 Multi-Frame Generation : génération de 3 trames interpolées pour 1 rendue. Conséquence infra : charge GPU déplacée partiellement vers l'inférence IA plutôt que le seul rastérisation.",
+        link: "https://pausehardware.com/architecture-nvidia-blackwell-rtx-50/"
+      },
+      {
+        name: "AMD RDNA 4 (RX 9070 XT)",
+        description: "16 Go GDDR6 à 20 Gbps + Infinity Cache 3e gen (64 Mo). RT accéléré : compression BVH améliorée, réduction du bottleneck intersection. FSR 4 basé sur ML. Point de vigilance : support driver Linux (amdgpu) encore en consolidation sur certains kernels.",
+        link: "https://hardwareand.co/actualites/longues/l-architecture-rdna-4-est-officielle-amd-annonce-enfin-les-details-techniques-des-rx-9070"
+      }
+    ]
+  },
+  {
+    title: "IA embarquée — NPU",
+    icon: "flash-outline",
+    items: [
+      {
+        name: "Intel NPU 3 (Core Ultra / Arrow Lake)",
+        description: "Moteur neuronal dédié : 13 TOPS isolés du CPU/GPU. Exécution locale de LLM légers (Phi-3, LLaMA 3.2 quantisé). Enjeu SISR direct : inférence on-premise = données hors cloud = conformité RGPD maintenue sans latence réseau. Vecteur d'adoption en PME prévisible à 18 mois.",
+        link: "https://www.pcmag.com/news/intel-unveils-next-gen-arrow-lake-desktop-cpus-theyre-all-about-efficiency"
+      }
+    ]
+  },
+  {
     title: "Chaines Youtube",
     icon: "logo-youtube",
     items: [
@@ -405,19 +453,24 @@ export const veilleData = [
       },
       {
         name: "Jigfio",
-        description: "Jigfio est une chaîne YouTube française spécialisée dans la technologie, créée en 2011 par un passionné d'informatique basé à Limoges.  Initialement reconnue pour ses tests poussés et critiques honnêtes de matériel informatique",
+        description: "Jigfio est une chaîne YouTube française spécialisée dans la technologie, créée en 2011 par un passionné d'informatique basé à Limoges. Initialement reconnue pour ses tests poussés et critiques honnêtes de matériel informatique.",
         link: "https://www.youtube.com/@Jigfio"
       },
       {
         name: "Vex",
-        description: "Une chaîne tech et PC gaming, avec un ton franc et des vidéos d’analyse.",
+        description: "Une chaîne tech et PC gaming, avec un ton franc et des vidéos d'analyse.",
         link: "https://www.youtube.com/@vextakes"
       },
       {
         name: "PAX PC",
-        description: "PAXPC - chaîne YouTube française, opérée par Pax. discret, méthodique, approche clinique. Tests rigoureux, comparatifs précis, guides sans détour.",
-        link: "https://www.youtube.com/@vextakes"
+        description: "PAXPC - chaîne YouTube française, opérée par Pax. Discret, méthodique, approche clinique. Tests rigoureux, comparatifs précis, guides sans détour.",
+        link: "https://www.youtube.com/@PAXPC"
       },
+      {
+        name: "Linus Tech Tips (LTT) ",
+        description: "Linus Tech Tips est une équipe passionnée d’experts « professionnellement curieux » en technologie grand public et en production vidéo, dont l’objectif est d’informer et de divertir.",
+        link: "https://www.youtube.com/@LinusTechTips"
+      }
     ]
   },
   {
@@ -426,7 +479,7 @@ export const veilleData = [
     items: [
       {
         name: "Video Cardz",
-        description: "VideoCardz est un site d’actualité spécialisé dans les cartes graphiques, les GPU et le hardware PC. Il publie surtout des infos sur les nouveautés, les annonces, les tests, les rumeurs et les fuites du secteur.",
+        description: "VideoCardz est un site d'actualité spécialisé dans les cartes graphiques, les GPU et le hardware PC. Il publie surtout des infos sur les nouveautés, les annonces, les tests, les rumeurs et les fuites du secteur.",
         link: "https://videocardz.com/"
       },
       {
@@ -435,9 +488,19 @@ export const veilleData = [
         link: "https://overclocking.com/"
       },
       {
-        name: "TechPowerUp ",
-        description: "TechPowerUp - plateforme anglophone fondée en 2004. Analyse approfondie du matériel informatique. - autorité technique — froide, fiable, incontestable.",
+        name: "TechPowerUp",
+        description: "TechPowerUp - plateforme anglophone fondée en 2004. Analyse approfondie du matériel informatique. Autorité technique — froide, fiable, incontestable.",
         link: "https://www.techpowerup.com/"
+      },
+      {
+        name: "pausehardware.com",
+        description: "pausehardware.com : site français spécialisé hardware et PC gaming, avec actualités, tests, comparatifs et bons plans tech.",
+        link: "https://pausehardware.com/"
+      },
+      {
+        name: "hardwareand.co",
+        description: "Média français spécialisé hardware et high-tech, proposant tests, actualités, analyses et bons plans sur les composants PC et technologies.",
+        link: "https://hardwareand.co/"
       }
     ]
   },
@@ -450,11 +513,6 @@ export const veilleData = [
         description: "Dépôts qui montent — détecter les nouveaux outils avant qu'ils ne deviennent mainstream.",
         link: "https://github.com/trending"
       },
-      {
-        name: "LWN.net",
-        description: "Journal hebdo sur le noyau Linux et l'open source. Niveau technique élevé.",
-        link: "https://lwn.net/"
-      }
     ]
   }
 ];

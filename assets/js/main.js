@@ -1,5 +1,5 @@
 /*-----------------------------------*\
-  #MAIN.JS — v2.0 LEAN
+  #MAIN.JS — v2.0
   Architecture : init critique → lazy render on nav click
   Delta v1→v2 :
     - Rendu initial limité à navbar + profil + about (above-fold uniquement)
