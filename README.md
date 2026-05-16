@@ -14,8 +14,6 @@ Achromatique ︲ Lavande
 
 ---
 
-`  👤  `︲**Auteur :** `Trq-Builds`
-
 `  🌐  `︲**Live :** https://tariq-laab.netlify.app
 
 `  🟣  `︲**Fork base :** [codewithsadee/vcard-personal-portfolio](https://github.com/codewithsadee/vcard-personal-portfolio)
