@@ -375,6 +375,7 @@ export const stageData = [
     company: "Eursocan",
     date: "2025",
     role: "Technicien informatique",
+    expandable: true,
     missions: [
       "Accueil et diagnostic client — identification des pannes hardware et software",
       "Dépannage PC : remplacement de composants, réinstallation OS, récupération de données",

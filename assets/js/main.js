@@ -133,19 +133,64 @@ function renderResume() {
   `).join(''));
 }
 
+/**
+ * renderStage — Injecte les cartes de stage.
+ * Comportement accordéon activé uniquement sur les entrées avec s.expandable === true (Eursocan).
+ * Autres cartes : rendu standard, 0 markup superflu.
+ */
 function renderStage() {
-  setHTML('.stage-list', stageData.map(s => `
-    <li class="stage-card">
-      <div class="stage-card-header">
-        <span class="stage-company">${s.company}</span>
-        <span class="stage-date">${s.date}</span>
-      </div>
-      <p class="stage-role">${s.role}</p>
-      <ul class="stage-missions">
-        ${s.missions.map(m => `<li>${m}</li>`).join('')}
-      </ul>
-    </li>
-  `).join(''));
+  setHTML('.stage-list', stageData.map(s => {
+    const exp = !!s.expandable;
+
+    return `
+      <li class="stage-card" ${exp ? 'data-expandable' : ''}>
+        <div class="stage-card-header">
+          <span class="stage-company">${s.company}</span>
+          <div class="stage-header-actions">
+            <span class="stage-date">${s.date}</span>
+            ${exp ? `
+              <button class="expand-btn"
+                      data-expand-btn
+                      aria-expanded="false"
+                      aria-label="Voir les détails — ${s.company}">
+                <span class="expand-icon"></span>
+              </button>` : ''}
+          </div>
+        </div>
+        <p class="stage-role">${s.role}</p>
+        <ul class="stage-missions">
+          ${s.missions.map(m => `<li>${m}</li>`).join('')}
+        </ul>
+        ${exp ? `
+          <div class="expandable-separator"></div>
+          <div class="expandable-body" aria-hidden="true">
+            <div class="expandable-inner">
+              <!--
+                PLACEHOLDER: Photos terrain — Eursocan
+                Insérer ici une grille de 2 à 4 photos (accueil client, atelier, etc.)
+                Structure suggérée :
+                  <div class="photo-grid" style="display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-top:12px;">
+                    <figure>
+                      <img src="./assets/images/stage/eursocan-01.webp"
+                           alt="Accueil client Eursocan"
+                           loading="lazy" width="400" height="300">
+                    </figure>
+                  </div>
+                Format recommandé : 400×300px, border-radius var(--radius-card).
+              -->
+              <div class="expandable-placeholder">
+                <ion-icon name="images-outline"></ion-icon>
+                <span>Photos terrain Eursocan — à insérer ici</span>
+              </div>
+            </div>
+          </div>` : ''}
+      </li>`;
+  }).join(''));
+
+  // Attache le listener uniquement si au moins une carte est expandable
+  if (stageData.some(s => s.expandable)) {
+    setupExpandableCards($('.stage-list'));
+  }
 }
 
 function renderVeille() {
@@ -175,46 +220,191 @@ function renderVeille() {
   `).join(''));
 }
 
+
 /**
- * Renderer générique bento — partagé par Outils, Certifications, Matériel.
- * @param {Array}  data           - Tableau de catégories issu de data.js
- * @param {string} targetSelector - Sélecteur du conteneur cible dans le HTML
- * @param {string} linkLabel      - Texte du lien externe
+ * _bentoCardHTML — Template standard (aucun accordéon).
+ * Utilisé par : renderMateriel, et par renderBento en mode section-expandable
+ *               (les cartes internes restent statiques).
  */
-function renderBento(data, targetSelector, linkLabel = 'Voir le site') {
-  setHTML(targetSelector, data.map(cat => `
-    <section class="bento-section">
-      <h3 class="bento-heading">
-        <div class="icon-box"><ion-icon name="${cat.icon}"></ion-icon></div>
-        ${cat.title}
-        <span class="bento-count">${cat.items.length}</span>
-      </h3>
-      <ul class="bento-grid">
-        ${cat.items.map(item => `
-          <li class="bento-card">
-            <h4>${item.name}</h4>
-            ${item.issuer
-              ? `<p class="bento-meta">
-                   <ion-icon name="business-outline"></ion-icon>
-                   ${item.issuer}${item.date ? ` — ${item.date}` : ''}
-                 </p>`
-              : ''}
-            <p class="bento-desc">${item.description}</p>
-            ${item.link
-              ? `<a href="${item.link}" class="tool-link" target="_blank" rel="noopener noreferrer">
-                   ${linkLabel} <ion-icon name="open-outline"></ion-icon>
-                 </a>`
-              : ''}
-          </li>
-        `).join('')}
-      </ul>
-    </section>
-  `).join(''));
+function _bentoCardHTML(item, linkLabel) {
+  return `
+    <li class="bento-card">
+      <h4>${item.name}</h4>
+      ${item.issuer ? `
+        <p class="bento-meta">
+          <ion-icon name="business-outline"></ion-icon>
+          ${item.issuer}${item.date ? ` — ${item.date}` : ''}
+        </p>` : ''}
+      <p class="bento-desc">${item.description}</p>
+      ${item.link ? `
+        <a href="${item.link}" class="tool-link" target="_blank" rel="noopener noreferrer">
+          ${linkLabel} <ion-icon name="open-outline"></ion-icon>
+        </a>` : ''}
+    </li>`;
 }
 
-const renderOutils         = () => renderBento(outilsData,         '.outils-target',         'Voir le site');
-const renderCertifications = () => renderBento(certificationsData, '.certifications-target', 'Voir la certification');
+/**
+ * _expandableBentoCardHTML — Template avec accordéon (Certifications).
+ * Expandable au niveau de la carte individuelle.
+ * PLACEHOLDER : zone d'insertion du certificat image.
+ */
+function _expandableBentoCardHTML(item, linkLabel) {
+  return `
+    <li class="bento-card" data-expandable>
+      <div class="bento-card-header">
+        <h4>${item.name}</h4>
+        <button class="expand-btn"
+                data-expand-btn
+                aria-expanded="false"
+                aria-label="Déplier — ${item.name}">
+          <span class="expand-icon"></span>
+        </button>
+      </div>
+      ${item.issuer ? `
+        <p class="bento-meta">
+          <ion-icon name="business-outline"></ion-icon>
+          ${item.issuer}${item.date ? ` — ${item.date}` : ''}
+        </p>` : ''}
+      <p class="bento-desc">${item.description}</p>
+      ${item.link ? `
+        <a href="${item.link}" class="tool-link" target="_blank" rel="noopener noreferrer">
+          ${linkLabel} <ion-icon name="open-outline"></ion-icon>
+        </a>` : ''}
+      <div class="expandable-separator"></div>
+      <div class="expandable-body" aria-hidden="true">
+        <div class="expandable-inner">
+          <!--
+            PLACEHOLDER: Certificat — ${item.name}
+            Insérer : <img src="./assets/images/certs/nom-cert.webp"
+                           alt="Certificat ${item.name}"
+                           loading="lazy" width="800" height="566">
+            Format recommandé : 800×566px, border-radius var(--radius-card).
+          -->
+          <div class="expandable-placeholder">
+            <ion-icon name="ribbon-outline"></ion-icon>
+            <span>Certificat — à insérer ici</span>
+          </div>
+        </div>
+      </div>
+    </li>`;
+}
+
+/**
+ * renderBento — Renderer générique bento.
+ * Partagé par Outils, Certifications, Matériel.
+ *
+ * @param {Array}  data           - Tableau de catégories (data.js)
+ * @param {string} targetSelector - Sélecteur du conteneur cible
+ * @param {string} linkLabel      - Libellé du lien externe
+ * @param {Object} options
+ * @param {boolean} options.expandable  - Active le comportement accordéon
+ * @param {string}  options.expandLevel - 'section' (Outils) | 'card' (Certifications)
+ */
+function renderBento(data, targetSelector, linkLabel = 'Voir le site', options = {}) {
+  const { expandable = false, expandLevel = 'card' } = options;
+
+  setHTML(targetSelector, data.map(cat => {
+
+    // ── Mode section-expandable (Outils) ──────────────────────────────────────
+    // Le bento-grid complet + placeholder constituent le corps déplié.
+    // La section est repliée par défaut : l'utilisateur déplie ce qui l'intéresse.
+    if (expandable && expandLevel === 'section') {
+      return `
+        <section class="bento-section" data-expandable>
+          <h3 class="bento-heading">
+            <div class="icon-box"><ion-icon name="${cat.icon}"></ion-icon></div>
+            ${cat.title}
+            <span class="bento-count">${cat.items.length}</span>
+            <button class="expand-btn"
+                    data-expand-btn
+                    aria-expanded="false"
+                    aria-label="Déplier — ${cat.title}"
+                    style="margin-left: auto;">
+              <span class="expand-icon"></span>
+            </button>
+          </h3>
+          <div class="expandable-separator"></div>
+          <div class="expandable-body" aria-hidden="true">
+            <div class="expandable-inner">
+              <ul class="bento-grid">
+                ${cat.items.map(item => _bentoCardHTML(item, linkLabel)).join('')}
+              </ul>
+              <!--
+                PLACEHOLDER: Logos & captures — ${cat.title}
+                Insérer ici une grille d'images/logos représentant les outils.
+                Structure suggérée :
+                  <ul class="logo-grid" style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+                    <li><img src="./assets/images/logos/outil.webp" alt="Outil" loading="lazy" width="48" height="48"></li>
+                  </ul>
+              -->
+              <div class="expandable-placeholder">
+                <ion-icon name="images-outline"></ion-icon>
+                <span>Logos & captures — ${cat.title}</span>
+              </div>
+            </div>
+          </div>
+        </section>`;
+    }
+
+    // ── Mode card-expandable (Certifications) ou standard (Matériel) ──────────
+    return `
+      <section class="bento-section">
+        <h3 class="bento-heading">
+          <div class="icon-box"><ion-icon name="${cat.icon}"></ion-icon></div>
+          ${cat.title}
+          <span class="bento-count">${cat.items.length}</span>
+        </h3>
+        <ul class="bento-grid">
+          ${cat.items.map(item =>
+            expandable
+              ? _expandableBentoCardHTML(item, linkLabel)
+              : _bentoCardHTML(item, linkLabel)
+          ).join('')}
+        </ul>
+      </section>`;
+
+  }).join(''));
+
+  // Attache le listener accordéon uniquement si nécessaire
+  if (expandable) {
+    setupExpandableCards($(targetSelector));
+  }
+}
+
+const renderOutils         = () => renderBento(outilsData,         '.outils-target',         'Voir le site',          { expandable: true, expandLevel: 'section' });
+const renderCertifications = () => renderBento(certificationsData, '.certifications-target', 'Voir la certification', { expandable: true, expandLevel: 'card'    });
 const renderMateriel       = () => renderBento(materielData,       '.materiel-target',       'Voir le produit');
+// Matériel : 0 changement, signature identique.
+
+/**
+ * setupExpandableCards — Accordéon générique via délégation d'événement.
+ *
+ * Pattern : un seul listener sur le conteneur parent → O(1) peu importe le nombre de cartes.
+ * Scalabilité : fonctionne sur des nœuds injectés dynamiquement (lazy render).
+ * Accessibilité : aria-expanded + aria-hidden synchronisés à chaque toggle.
+ *
+ * @param {HTMLElement|null} container - Nœud parent des [data-expandable].
+ */
+function setupExpandableCards(container) {
+  if (!container) return;
+
+  container.addEventListener('click', (e) => {
+    const btn  = e.target.closest('[data-expand-btn]');
+    if (!btn) return;
+
+    const card = btn.closest('[data-expandable]');
+    if (!card) return;
+
+    const next = !card.classList.contains('is-open');
+    card.classList.toggle('is-open', next);
+
+    btn.setAttribute('aria-expanded', String(next));
+
+    // Sync aria-hidden sur le corps déplié
+    const body = card.querySelector('.expandable-body');
+    if (body) body.setAttribute('aria-hidden', String(!next));
+  });
+}
 
 function renderPortfolio() {
   // Déduplique les catégories et insère "Tout" en premier
