@@ -61,24 +61,59 @@ export const outilsData = [
     items: [
       {
         name: "Gemini",
+        image: {
+          src: "./assets/images/Gemini.jpg",
+          alt: "",
+          width: 500,
+          height: 500,
+        },
         description: "Modèle d’IA multimodal de Google : générer et analyser texte, images, audio et code. Véritable couteau suisse numérique infatigable.",
         link: "https://gemini.google/"
       },
       {
         name: "Claude",
+        image: {
+          src: "./assets/images/Claude.jpg",
+          alt: "1",
+          width: 500,
+          height: 500,
+        },
         description: "Modèle d’IA de pointe d’Anthropic, spécialisé dans le raisonnement avancé et l’analyse de code. Un partenaire de réflexion d’une grande précision. C’est grâce à lui que ce portfolio a vu le jour.",
         link: "https://claude.ai/"
       },
       {
         name: "ChatGPT",
         description: "Modèle d’IA développé par OpenAI, capable d’aider à la génération de contenu et à la résolution de problèmes. Un outil polyvalent qui peut servir de support dans de nombreux contextes, selon les besoins.",
+        image: {
+          src: "./assets/images/GPT.jpg",
+          alt: "  ",
+          width: 500,
+          height: 500,
+        },
         link: "https://chatgpt.com/"
       },
       {
         name: "PerplexityAI",
+        image: {
+          src: "./assets/images/PPXY.jpg",
+          alt: "",
+          width: 500,
+          height: 500,
+        },
         description: "Moteur de recherche conversationnel basé sur l’IA, fournissant des réponses synthétiques avec sources citées en temps réel.",
         link: "https://www.perplexity.ai/"
-      }
+      },
+      {
+        name: "LMArenaAI",
+        image: {
+          src: "./assets/images/Arena.jpg",
+          alt: "",
+          width: 500,
+          height: 500,
+        },
+        description: "Plateforme communautaire qui évalue les IA, avec accès gratuit et illimité à des modèles premium.",
+        link: "https://arena.ai/"
+      },
     ]
   },
   {
@@ -94,6 +129,12 @@ export const outilsData = [
       {
         name: "FMHY (FreeMediaHeckYeah)",
         description: "Une vaste collection de ressources numériques du web : un index communautaire très fourni pour découvrir outils et logiciels. Une petite mine d'or pour qui sait ce qu'il cherche.",
+        image: {                                        // ← ajouter ça
+          src: "./assets/images/FMHY.png",
+          alt: "",
+          width: 480,
+          height: 240
+        },
         link: "https://fmhy.net/"
       },
       {
@@ -103,12 +144,18 @@ export const outilsData = [
       },
       {
         name: "HandBrake",
+        image: {                           // ← ajouter ça
+          src: "./assets/images/HB.jpg",
+          alt: "",
+          width: 480,
+          height: 240
+        },
         description: "Transcodeur vidéo open source de référence : il permet de convertir et d’optimiser des fichiers vidéo vers de nombreux formats modernes, avec fiabilité et simplicité.",
         link: "https://handbrake.fr/"
       },
       {
         name: "MPC-QT",
-        description: "Lecteur multimédia léger inspiré de Media Player Classic et réécrit en Qt : simple, rapide et sans fioritures pour la lecture multimédia. Une alternative très efficace à VLC.",
+        description: "Lecteur multimédia léger inspiré de Media Player Classic et réécrit en QT : simple, rapide et sans fioritures pour la lecture multimédia. Une alternative très efficace à VLC.",
         link: "https://mpc-qt.github.io/"
       },
       {
@@ -124,32 +171,56 @@ export const outilsData = [
       {
         name: "Netlify",
         description: "Solution gratuite pour le déploiement de sites web statiques, simple à utiliser et adaptée aux projets personnels comme aux petits déploiements.",
+        image: {
+          src: "./assets/images/netlifly.jpg",
+          alt: "",
+          width: 500,
+          height: 500,
+        },
         link: "https://www.netlify.com/"
       },
       {
         name: "Parabolic",
+        image: {
+          src: "./assets/images/parabolic.png",
+          alt: "",
+          width: 500,
+          height: 500,
+        },
         description: "Utilitaire de téléchargement de vidéos et d’audio basé sur yt-dlp : une interface moderne et intuitive pour récupérer du contenu facilement.",
         link: "https://github.com/NickvisionApps/Parabolic"
       },
       {
         name: "Arcod",
         description: "Scrapper de musique : un outil capable de récupérer rapidement des morceaux en qualité lossless en .FLAC. Pour ceux qui aiment le bon son, cela mérite au moins un coup d'œil.",
+        image: {
+          src: "./assets/images/ARCOD.png",
+          alt: "",
+          width: 500,
+          height: 500,
+        },
         link: "https://www.arcod.xyz/"
       },
       {
         name: "VSCodium",
         description: "Éditeur de code open source basé sur les binaires libres de VS Code : léger, performant et pensé pour mieux respecter la vie privée.",
+        image: {
+          src: "./assets/images/VSC.png",
+          alt: "",
+          width: 500,
+          height: 500,
+        },
         link: "https://vscodium.com/"
       },
     ]
   },
-      
-      
+
+
   {
     title: "Documentation & Organisation",
     icon: "document-text-outline",
     items: [
-     {
+      {
         name: "Notion",
         description: "Espace de travail tout-en-un : prise de notes, gestion de bases de données et planification de projets. Mon second cerveau, pour tout centraliser.",
         link: "https://www.notion.so/"
@@ -171,11 +242,17 @@ export const certificationsData = [
     icon: "ribbon-outline",
     items: [
       {
-        name: "Exemple — Certification 1",
-        issuer: "Organisme",
-        date: "2024",
-        description: "Description courte de la certification.",
-        link: ""
+        name: "atelier-rgpd.cnil.fr",
+        image: {
+          src: "./assets/images/rgpd.png",
+          alt: "",
+          width: 500,
+          height: 500,
+        },
+        issuer: "RGPD",
+        date: "2026",
+        description: "Atestation de suivi délivrée par la CNIL (Commission Nationale de l'Informatique et des Libertés",
+        link: "https://mega.nz/file/JrQCgCLC#uGgy7uDlRFe3MhqHmHrw6hPgCyP-SphshhrpvVoDaWU",
       }
     ]
   },
@@ -184,15 +261,38 @@ export const certificationsData = [
     icon: "time-outline",
     items: [
       {
-        name: "Exemple — Certification en cours",
-        issuer: "Organisme",
+        name: "Vigpirate",
+        image: {
+          src: "./assets/images/vigipirate.png",
+          alt: "",
+          width: 500,
+          height: 500,
+        },
+        issuer: "Vigpirate.gouv.fr",
         date: "2025",
         description: "Certification en cours de préparation.",
         link: ""
+      },
+
+      {
+        name: "www.netacad.com",
+        image: {
+          src: "",
+          alt: "  ",
+          width: 500,
+          height: 500,
+        },
+        issuer: "Cisco Networking Academy",
+        date: "2026",
+        description: "Certification en cours de préparation...",
+        link: ""
       }
+
     ]
   }
+
 ];
+
 
 
 // ========== MATÉRIEL ==========
@@ -231,7 +331,7 @@ export const materielData = [
         description: "AIO CPU haute performance.",
         link: "https://www.arctic.de/en/Liquid-Freezer-III-Pro-240/ACFRE00178A"
       },
-       {
+      {
         name: " ARCTIC P14 Pro PST 140mm - ARCTIC P12 Pro 120mm",
         description: "Ventilation et refroidissement max.",
         link: "https://www.arctic.de/en/P14-Pro-PST/ACFAN00314A"
@@ -295,37 +395,37 @@ export const materielData = [
 
 // ========== PORTFOLIO ==========
 export const portfolioData = [
- {
+  {
     title: "CEJMA ・ TP1 & TP2",
     category: "Autre",
     image: "https://images-ext-1.discordapp.net/external/n7BuANsQtp4mUoJq299lU2zICMhAcjXAGXmePan-aW4/https/opengraph.githubassets.com/95ab98531a95740dda9469d09d411cdb1626533705bb96ac4e0742f71e6c9dac/Trq-Builds/TP1-TP2-CEJMA?format=webp&width=1500&height=750",
     link: "https://github.com/Trq-Builds/TP1-TP2-CEJMA"
   },
- {
+  {
     title: "Devoir - 1 BTS SIO ・ SISR 2ᵉ année.",
     category: "Autre",
     image: "https://images-ext-1.discordapp.net/external/BiUhlkYd0rBAgKjEPAwvcGk4mYiDnuJJJvmHXzXzcA8/https/opengraph.githubassets.com/5580fcdd6c8a50fa72822c69a4335d1bd98c0100d9db4ee6796e28fc545da734/Trq-Builds/DEVOIR-CEJMA-1?format=webp&width=1500&height=750",
     link: "https://github.com/Trq-Builds/DEVOIR-CEJMA-1"
   },
-{
+  {
     title: "Devoir - 2 ・ BTS SIO SISR 2ᵉ année.",
     category: "Autre",
     image: "https://images-ext-1.discordapp.net/external/uHOzEQUx2VpoZGycRfKs4QTgCiK2KHQmhpi1YebqOHY/https/opengraph.githubassets.com/02d4a22c885a0103f010021dfefca7be19951d6cb078dd00be252e0c36f94583/Trq-Builds/DEVOIR-CEJMA-2?format=webp&width=1500&height=750",
     link: "https://github.com/Trq-Builds/DEVOIR-CEJMA-2"
   },
- {
+  {
     title: "Doc-Technique-installation-Debian-13-sans-interface-graphique",
     category: "Linux",
     image: "https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2024/12/trixie-artwork-1024x576.jpg",
     link: "https://github.com/Trq-Builds/Doc-Technique-installation-Debian-13-sans-interface-graphique"
   },
- {
+  {
     title: "Doc-Technique-Installation-Windows-11",
     category: "Windows",
     image: "https://images-ext-1.discordapp.net/external/nqUz3WMhMLUSm5WoE35AJYk_6FKC-3QM0dHRP75im5E/https/opengraph.githubassets.com/c506bc37809506146ba7039b28b439916f795615e958be35605677d89a8fd81f/Trq-Builds/Doc-Technique-Installation-Windows-11?format=webp&width=1500&height=750",
     link: "https://images-ext-1.discordapp.net/external/nqUz3WMhMLUSm5WoE35AJYk_6FKC-3QM0dHRP75im5E/https/opengraph.githubassets.com/c506bc37809506146ba7039b28b439916f795615e958be35605677d89a8fd81f/Trq-Builds/Doc-Technique-Installation-Windows-11?format=webp&width=1500&height=750"
   },
- {
+  {
     title: "Doc-Technique-Installation-Windows-Server-2025",
     category: "Windows",
     image: "https://imgs.search.brave.com/BANAXRIGNncZeU3BCbXQ72vhobKjruKjou5TIGcq0_w/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMud2l4c3RhdGlj/LmNvbS9tZWRpYS8w/OTVhY2NfZTBhNDc5/NzBkZjM2NGQxZGEx/NjA3MzlmY2Q0NGE2/Njd-bXYyLnBuZy92/MS9maXQvd185Nzks/aF82MDgscV85MCxl/bmNfYXZpZixxdWFs/aXR5X2F1dG8vMDk1/YWNjX2UwYTQ3OTcw/ZGYzNjRkMWRhMTYw/NzM5ZmNkNDRhNjY3/fm12Mi5wbmc",
@@ -337,7 +437,7 @@ export const portfolioData = [
     image: "https://images-ext-1.discordapp.net/external/Kdnuz-wYoqoQ-Ms7hloWkDBNu1woedcq3yAOe_ZlrJI/https/opengraph.githubassets.com/4af882787510cec0398c8afa198ae99cdc9cd5b14e325e1f899a6e4af7057b89/Trq-Builds/Doc-Technique-Service-de-deploiement-FOG?format=webp&width=1650&height=825",
     link: "https://github.com/Trq-Builds/Doc-Technique-Service-de-deploiement-FOG"
   },
-{
+  {
     title: "Doc-Technique-Superviser un réseau avec Zabbix et Grafana.",
     category: "Linux",
     image: "https://images-ext-1.discordapp.net/external/5CruwiXWW80WzKrb3jXWGijESfZJawcii0JIUM1CNDA/https/opengraph.githubassets.com/12e95ee8947fe803d5e5323db8accc609a3f91a6c5ea4f73c01c1874529e6b27/Trq-Builds/Doc-Technique-Superviser-Un-Reseau-Avec-Zabbix-et-Grafana?format=webp&width=1500&height=750",
@@ -349,7 +449,7 @@ export const portfolioData = [
     image: "https://images-ext-1.discordapp.net/external/u96J1Oq9Qwr2EEZIkAHagvYs4hzi8udT8zKocSctOkA/https/opengraph.githubassets.com/6c6dc15705e48558420ca1f66c1dc3a5b50b56ddd8f50d5fe4d27045266be97b/Trq-Builds/Doc-Technique-Administrer-Un-Controleur-De-Domaine?format=webp&width=1650&height=825",
     link: "https://github.com/Trq-Builds/Doc-Technique-Administrer-Un-Controleur-De-Domaine"
   },
-{
+  {
     title: "GLPI",
     category: "Autre",
     image: "https://images-ext-1.discordapp.net/external/0satjidUaFkdIgmkBl50kCut4fvVOkoi3neLfuFsoG4/https/opengraph.githubassets.com/dcbdca28df39c488f98596cb298b82ad3ae684d8ec1b3ab97cc8c0463c777d69/Trq-Builds/GLPI?format=webp&width=1500&height=750",
@@ -361,10 +461,10 @@ export const portfolioData = [
     image: "https://images-ext-1.discordapp.net/external/BdIp7W1i0SBh5fZTPzrB9fnyzEWPTaf_vQFMwUyuKBA/https/opengraph.githubassets.com/17cefd3511913f4e2f4f733da87b007b8f4ef2b19dab60530cf4d8eaefcb150e/Trq-Builds/Portfolio-V1.8?format=webp&width=1650&height=825",
     link: "https://github.com/Trq-Builds/2025-Portfolio-V1.8"
   },
-{
+  {
     title: "TP-Des-serveurs-aux-services",
     category: "Autre",
-    image: "https://cdn.discordapp.com/attachments/1414173910802632775/1483050658654453760/TP-Des-serveurs-aux-services.png?ex=69b92e0e&is=69b7dc8e&hm=dac196f14084d16e5a7df095ff41a2d04c5a554754ea914fc94eb5eba3167399&animated=true",
+    image: "./assets/images/Sos.jpeg",
     link: "https://github.com/Trq-Builds/TP-Des-serveurs-aux-services"
   },
 ];
@@ -372,9 +472,16 @@ export const portfolioData = [
 // ========== STAGE ==========
 export const stageData = [
   {
-    company: "Eursocan",
+    company: "Euroscan",
     date: "2025",
     role: "Technicien informatique",
+    image: {                                        // ← ajouter ça
+      src: "",
+      alt: "",
+      width: 240,
+      height: 240
+    },
+
     expandable: true,
     missions: [
       "Accueil et diagnostic client — identification des pannes hardware et software",
