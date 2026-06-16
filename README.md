@@ -1,4 +1,4 @@
-# `  ⚫  `︲`  ⚪  ` Portfolio  Tariq LAABOUDI
+# `  ⚫  `︲`  ⚪  ` Portfolio  Tariq.L
 
 <p align="center">
 Achromatique ︲ Lavande ︲ SPA Statique · Zéro Framework
