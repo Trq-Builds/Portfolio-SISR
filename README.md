@@ -140,10 +140,6 @@ Aucun `getBoundingClientRect`, aucun `reflow` JS. Délégation d'événement uni
 
 Filtrage par catégorie (`Windows`, `Linux`, `Autre`) via `data-filter` attributes. Animation `scaleUp` à l'apparition des items  `transform + opacity` uniquement.
 
-### Easter Egg Avatar
-
-80+ citations chargées uniquement au premier clic (allocation lazy). `dismissTimer` avec `clearTimeout` pour éviter les fuites. Détection clic extérieur via `pointerdown` sur `document`.
-
 ---
 
 ## `  ⚫  `︲Guide de Déploiement et Configuration
