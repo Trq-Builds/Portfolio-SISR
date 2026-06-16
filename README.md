@@ -1,4 +1,4 @@
-# `  ⚫  `︲`  ⚪  ` Portfolio V1.8 Tariq LAABOUDI
+# `  ⚫  `︲`  ⚪  ` Portfolio - Tariq LAABOUDI
 
 <p align="center">
 Achromatique ︲ Lavande
