@@ -310,5 +310,3 @@ IAs        : Claude Sonnet · GPT-5.1 · Gemini 3.0 Pro
 ```
 
 ---
-
-`  🟣  `︲**Live :** https://tariq-laab.netlify.app ︲ **Source :** https://github.com/Trq-Builds
