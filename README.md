@@ -1,4 +1,4 @@
-# ⚫ ︲ ⚪ Portfolio Tariq LAABOUDI
+# ⚫ ︲ ⚪ Portfolio Tariq.L
 
 <p align="center">
   <img src="https://img.shields.io/website?url=https://tariq-laab.netlify.app&label=deploy&style=for-the-badge">
