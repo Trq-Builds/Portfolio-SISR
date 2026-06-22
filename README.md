@@ -18,8 +18,6 @@ Portfolio personnel d'un étudiant BTS SIO option SISR. SPA (Single-Page Applica
 
 Huit sections : **À propos**, **Parcours** (formation, expériences, compétences), **Stage** (Eursocan 2025, RPM Multimédia 2023), **Certifications**, **Veille informatique**, **Outils**, **Matériel**, **Portfolio** (projets GitHub filtrables).
 
-Aucun `package.json`. Aucun build step. Aucun transpileur. Un navigateur suffit.
-
 ---
 
 ## Technologies Utilisées
