@@ -14,7 +14,7 @@
 
 ## Présentation Générale
 
-Portfolio personnel d'un étudiant BTS SIO option SISR. SPA (Single-Page Application) statique construite sans aucun framework ni dépendance runtime. Le HTML est un shell vide — l'intégralité du contenu est injectée dynamiquement depuis `data.js` au `DOMContentLoaded`.
+Portfolio personnel d'un étudiant BTS SIO option SISR. SPA (Single-Page Application) statique construite sans aucun framework ni dépendance runtime. Le HTML est un shell vide  l'intégralité du contenu est injectée dynamiquement depuis `data.js` au `DOMContentLoaded`.
 
 Huit sections : **À propos**, **Parcours** (formation, expériences, compétences), **Stage** (Eursocan 2025, RPM Multimédia 2023), **Certifications**, **Veille informatique**, **Outils**, **Matériel**, **Portfolio** (projets GitHub filtrables).
 
@@ -24,24 +24,24 @@ Huit sections : **À propos**, **Parcours** (formation, expériences, compétenc
 
 | Couche | Détail |
 |---|---|
-| Markup | HTML5 sémantique — `<article>`, `<aside>`, `<nav>`, `<figure>`, `<section>` |
-| Style | CSS3 — Custom Properties (tokens `:root`), Flexbox, CSS Grid (`auto-fill / minmax`), `clamp()` fluide, `@keyframes` GPU-safe, `backdrop-filter` |
-| Scripting | JavaScript Vanilla ES6+ — modules natifs `import / export`, `Set`, `Map`, délégation d'événement, `classList.toggle` |
+| Markup | HTML5 sémantique  `<article>`, `<aside>`, `<nav>`, `<figure>`, `<section>` |
+| Style | CSS3  Custom Properties (tokens `:root`), Flexbox, CSS Grid (`auto-fill / minmax`), `clamp()` fluide, `@keyframes` GPU-safe, `backdrop-filter` |
+| Scripting | JavaScript Vanilla ES6+  modules natifs `import / export`, `Set`, `Map`, délégation d'événement, `classList.toggle` |
 | Icônes | Ionicons 5.5.2 (ESM via `unpkg` CDN) |
-| Fonts | Google Fonts — Poppins 300 / 400 / 500 / 600 |
+| Fonts | Google Fonts  Poppins 300 / 400 / 500 / 600 |
 | Persistance | `localStorage` (thème dark/light) |
-| Hébergement | Netlify — déploiement manuel drag & drop, HTTPS Let's Encrypt, CDN Edge |
+| Hébergement | Netlify  déploiement manuel drag & drop, HTTPS Let's Encrypt, CDN Edge |
 | Versioning | Git / GitHub |
 
 ---
 
 ## Fonctionnalités Clés
 
-### Routage SPA (main.js — `setupNavigation`)
+### Routage SPA (main.js  `setupNavigation`)
 
 Huit `<article data-page="...">` cohabitent dans le DOM. Un seul porte la classe `.active` à la fois, contrôlée par `classList.toggle('active', condition)`. Aucun rechargement de page, aucun `history.pushState`.
 
-### Lazy Rendering (main.js — `SECTION_RENDERERS` + `RENDERED`)
+### Lazy Rendering (main.js  `SECTION_RENDERERS` + `RENDERED`)
 
 `SECTION_RENDERERS` est un objet littéral faisant correspondre chaque id de section à sa fonction de rendu. `RENDERED` est un `Set`. Au premier clic sur un lien de navigation, `renderSection(id)` vérifie l'appartenance au `Set` en O(1) avant d'injecter le HTML. Seule la section `about` est rendue au chargement (above-fold uniquement).
 
@@ -58,9 +58,9 @@ function renderSection(id) {
 - Persistance via `localStorage` (clé `theme`).
 - Au clic : `body.classList.toggle('dark-mode')`.
 - Swap simultané : palette CSS (variables `:root` redéfinies sous `body.dark-mode`), src de l'avatar (`avatar-light.webp` ↔ `avatar-dark.webp`), `href` du favicon (`logo-light.ico` ↔ `logo-dark.ico`).
-- Animation bouton : `opacity` + `rotate` sur `.sun` / `.moon` — GPU-safe, zéro reflow.
+- Animation bouton : `opacity` + `rotate` sur `.sun` / `.moon`  GPU-safe, zéro reflow.
 
-### Accordéon expandable — CSS Grid Trick (style.css + main.js — `setupExpandableCards`)
+### Accordéon expandable  CSS Grid Trick (style.css + main.js  `setupExpandableCards`)
 
 Révélation de contenu à hauteur variable sans valeur hardcodée et sans `getBoundingClientRect` :
 
@@ -75,17 +75,17 @@ Révélation de contenu à hauteur variable sans valeur hardcodée et sans `getB
 }
 ```
 
-Un unique listener en délégation sur le conteneur parent (`container.addEventListener('click', ...)`) gère tous les boutons `[data-expand-btn]` — O(1) indépendamment du nombre de cartes. `aria-expanded` et `aria-hidden` sont synchronisés à chaque toggle.
+Un unique listener en délégation sur le conteneur parent (`container.addEventListener('click', ...)`) gère tous les boutons `[data-expand-btn]`  O(1) indépendamment du nombre de cartes. `aria-expanded` et `aria-hidden` sont synchronisés à chaque toggle.
 
-### Filtres Portfolio (main.js — `setupFilters`)
+### Filtres Portfolio (main.js  `setupFilters`)
 
 Chaque projet porte un attribut `data-category`. Les boutons filtres portent `data-filter`. Au clic : `classList.toggle('active', cat === 'Tout' || p.dataset.category === cat)`. Animation `scaleUp` à l'apparition : `transform` + `opacity` exclusivement.
 
 ### Bento Grid responsive (style.css)
 
-Grille `auto-fill` avec `minmax(200px, 1fr)` — responsive sans media query dédiée. Utilisée pour Outils, Certifications et Matériel.
+Grille `auto-fill` avec `minmax(200px, 1fr)`  responsive sans media query dédiée. Utilisée pour Outils, Certifications et Matériel.
 
-### Sidebar accordéon mobile (script.js + main.js — `setupSidebar`)
+### Sidebar accordéon mobile (script.js + main.js  `setupSidebar`)
 
 `max-height: 112px` au repos → `max-height: 500px` via classe `.active`. Transition `cubic-bezier`. Au breakpoint ≥ 1250px : sidebar en `position: sticky; top: 60px`, `max-height: none`, bouton toggle masqué via `display: none`.
 
@@ -95,7 +95,7 @@ Grille `auto-fill` avec `minmax(200px, 1fr)` — responsive sans media query dé
 
 ```
 /
-├── index.html                        ← Shell HTML — aucun contenu statique
+├── index.html                        ← Shell HTML  aucun contenu statique
 ├── README.md
 │
 └── assets/
@@ -122,11 +122,11 @@ Grille `auto-fill` avec `minmax(200px, 1fr)` — responsive sans media query dé
 
 | Fichier | Rôle |
 |---|---|
-| `data.js` | Model — données uniquement, zéro logique DOM |
-| `main.js` | Controller — rendu, routage, lazy rendering, filtres portfolio |
+| `data.js` | Model  données uniquement, zéro logique DOM |
+| `main.js` | Controller  rendu, routage, lazy rendering, filtres portfolio |
 | `script.js` | Event handling secondaire (filtres mobile, sidebar) |
 | `theme-toggle.js` | State manager thème |
-| `style.css` | View — présentation, tokens, responsive |
+| `style.css` | View  présentation, tokens, responsive |
 
 ---
 
