@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/badge/open--source-MIT-lightgrey?style=for-the-badge">
 </p>
 
-**Live :** https://tariq-laab.netlify.app
+ `🌐` **︲Live :** https://tariq-laab.netlify.app
 
 ---
 
